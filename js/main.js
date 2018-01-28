@@ -34,9 +34,7 @@ $(function() {
     $(".slick-next").removeClass("opacity-0");
   });
   $(".allCityCon").click(function() {
-    console.log("yes");
-    $(".allCity ul").slideToggle();
-    // $(".allCity ul").toggleClass("openCity");
+    $(".allCity .dropdown").slideToggle();
   });
 
   $("#thedate").datepicker({
@@ -60,4 +58,47 @@ $(function() {
       " ~ $" +
       $("#slider-range").slider("values", 1)
   );
+  $(".checkbox").click(function(){
+    $(this).children("i").toggleClass("fa-check-square");
+  })
+  $(".trangle").click(function(){
+    $(this).toggleClass("fa-sort-desc");
+    $(this).nextAll().slideToggle();
+  })
+  $(".guideLan .checkbox:nth-of-type(1)").click(function(){
+    $(".guideLan .checkbox .fa").toggleClass("fa-check-square");
+  })
+  $(".aIconCon").hover(function(){
+    $(this).children(".dropdown-content").slideToggle();
+  })
+  $(".gotop").click(function(){
+    $("html, body").animate({
+      scrollTop: 0,
+    })
+    return false;
+  })
+  $(".gotop").hide();
+	$(window).scroll(function(){
+		var scrollHeight = $(window).scrollTop();
+		if(scrollHeight > 200){
+			$(".gotop").fadeIn();
+		}else{		
+			$(".gotop").fadeOut();
+		}
+  })
+  $(".pick-condition").click(function(){
+    $(".sideMenu-group").toggleClass("open");
+    $(".pick-confirm").toggleClass("open");
+    $('html, body').animate({
+      scrollTop: 100,
+    })
+  });
+  $('.pick-confirm-btn').click(function(){
+    $(".sideMenu-group").toggleClass("open");
+    $(".pick-confirm").toggleClass("open");
+  })
+  $('#pick-cancel').click(function(){
+    $(".sideMenu-group").toggleClass("open");
+    $(".pick-confirm").toggleClass("open");
+  })
 });
